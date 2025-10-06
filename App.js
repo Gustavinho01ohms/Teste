@@ -1,20 +1,17 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, Button, StyleSheet, Alert } from 'react-native';
 
-// Importa a variável de ambiente (ex: usando react-native-dotenv)
-// import { API_PASSWORD } from '@env'; 
-
 const App = () => {
   const [password, setPassword] = useState('');
 
   const doLogin = () => {
-    // CORREÇÃO: Credenciais não são mais embutidas no código.
-    // Em uma aplicação real, a senha seria validada em um servidor.
-    // Para esta demo, podemos simular a validação ou usar uma variável de ambiente.
-    if (password.length >= 6) { // Exemplo de validação simples
-      Alert.alert("Sucesso!", "A validação da senha pode ser feita em um servidor.");
+    // PROBLEMA: Senha embutida no código
+    const hardcodedPassword = "senha_secreta_123"; 
+
+    if (password === hardcodedPassword) {
+      Alert.alert("Sucesso!", "Login realizado com sucesso!");
     } else {
-      Alert.alert("Erro", "Senha deve ter pelo menos 6 caracteres.");
+      Alert.alert("Erro", "Senha incorreta.");
     }
   };
 
